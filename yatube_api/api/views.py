@@ -1,5 +1,6 @@
 from rest_framework import filters, mixins, permissions, viewsets
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.exceptions import NotFound
 
 from api.permission import IsAuthorOrReadOnly
 from api.serializers import (CommentSerializer, FollowSerializer,
