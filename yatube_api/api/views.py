@@ -31,8 +31,14 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.get_post().comments.all()
-        
+
     def get_post(self):
+        post_id = self.kwargs.get('post_id')
+        try:
+            post = Post.objects.get(pk=post_id)
+            return post
+        except Post.DoesNotExist:
+            raise NotFound("Пост не найден")
 
 
 class CreateListViewSet(

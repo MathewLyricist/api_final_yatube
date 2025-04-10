@@ -31,6 +31,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.get_post().comments.all()
+        
+    def get_post(self):
 
 
 class CreateListViewSet(
